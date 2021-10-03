@@ -1,3 +1,4 @@
+import 'package:clone_netflix/src/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 
 class app_bar extends StatelessWidget {
@@ -18,24 +19,8 @@ class app_bar extends StatelessWidget {
                     image: AssetImage('assets/images/logo.png'),
                     width: 45.0,
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          child: Icon(
-                            Icons.cast_rounded,
-                            size: 32.0,
-                            color: Colors.white,
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Image(
-                          image: AssetImage('assets/images/perfil-icon.png'),
-                          width: 30.0,
-                        ),
-                      ),
-                    ],
-                  )
+                  // Cast e icon de perfil
+                  menu_widget()
                 ],
               ),
             ),
