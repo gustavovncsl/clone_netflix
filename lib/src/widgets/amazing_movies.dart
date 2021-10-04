@@ -103,6 +103,7 @@ class _amazing_moviesState extends State<amazing_movies> {
                                       indexMovieTop10(index, 1),
                                       style: TextStyle(
                                         fontSize: 150,
+                                        fontFamily: 'Netflix',
                                         foreground: Paint()
                                           ..style = PaintingStyle.stroke
                                           ..strokeWidth = 10

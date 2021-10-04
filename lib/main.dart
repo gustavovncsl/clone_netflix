@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.black,
+          fontFamily: 'Netflix'
         ),
         home: HomeScreen()
         );

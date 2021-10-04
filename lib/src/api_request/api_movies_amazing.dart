@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<List<Map<String, dynamic>>> fetchMoviesAmazing() async {
   String apiMovies =
-      'https://api.themoviedb.org/3/movie/top_rated?api_key=b08d03e485967449e3ee8777025070fd&page=2';
+      'https://api.themoviedb.org/3/movie/now_playing?api_key=b08d03e485967449e3ee8777025070fd&page&language=pt-BR';
 
   final response = await http.get(Uri.parse(apiMovies));
 
