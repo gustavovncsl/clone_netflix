@@ -22,6 +22,12 @@ class _amazing_moviesState extends State<amazing_movies> {
     future_poster = getFetchedMoviesAmazing();
   }
 
+  indexMovieTop10(a, b) {
+    b = 1;
+    var soma = a + b;
+    return soma.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -58,33 +64,63 @@ class _amazing_moviesState extends State<amazing_movies> {
                           scrollDirection: Axis.horizontal,
                           itemCount: 10,
                           itemBuilder: (context, index) {
-                            return Container(
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  child: Container(
-                                      child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: Image.network(
-                                        'https://www.themoviedb.org/t/p/original${snapshot.data[index].posterPath}',
-                                        fit: BoxFit.cover),
-                                  )),
-                                  onTap: () {
-                                    setState(() {
-                                      indexMovieDetail = index;
-                                    });
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              info_page_detail_amazing(
-                                                index: indexMovieDetail,
-                                              )),
-                                    );
-                                  },
+                            return Stack(children: <Widget>[
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left:40, top: 20, bottom: 20),
+                                  child: InkWell(
+                                    child: Container(
+                                        child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(5),
+                                      child: Image.network(
+                                          'https://www.themoviedb.org/t/p/original${snapshot.data[index].posterPath}',
+                                          fit: BoxFit.cover),
+                                    )),
+                                    onTap: () {
+                                      setState(() {
+                                        indexMovieDetail = index;
+                                      });
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                info_page_detail_amazing(
+                                                  index: indexMovieDetail,
+                                                )),
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
-                            );
+                              Positioned(
+                                left: 10,
+                                top: 110,
+                                child: Container(
+                                    child: Stack(
+                                  children: <Widget>[
+                                    // Stroked text as border.
+                                    Text(
+                                      indexMovieTop10(index, 1),
+                                      style: TextStyle(
+                                        fontSize: 150,
+                                        foreground: Paint()
+                                          ..style = PaintingStyle.stroke
+                                          ..strokeWidth = 10
+                                          ..color = Colors.white,
+                                      ),
+                                    ),
+                                    // Solid text as fill.
+                                    Text(
+                                      indexMovieTop10(index, 1),
+                                      style: TextStyle(
+                                        fontSize: 150,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              )
+                            ]);
                           }),
                     ),
                   ],
